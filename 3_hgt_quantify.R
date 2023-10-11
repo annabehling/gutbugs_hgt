@@ -59,12 +59,12 @@ HQ_genes_placebo_female <- HQ_genes_female_clean %>% # load all HQ female genes
   filter(Group == "Placebo" & Timepoint == "Week 6") # filter for Placebo week 6 
 nrow(HQ_genes_placebo_female) # 741090
 
-HQ_genes_placebo_female_individual <- HQ_genes_placebo_female %>% # load HGT events
+HQ_genes_placebo_female_individual <- HQ_genes_placebo_female %>% # load HQ female genes for placebo week 6
   group_by(Participant_ID) %>% # group by participant ID
   summarise(HQ_genes_per_indiv = n(), # get number of HQ genes for each individual
             HQ_clusters_per_indiv = n_distinct(Cluster_ID)) # get number of distinct gene clusters for each individual
 
-hgt_genes_placebo_female_individual <- female_placebo_hgts_clean %>% # load output of tentative_hgts_placebo() above
+hgt_genes_placebo_female_individual <- female_placebo_hgts_clean %>% # load HGT events
   mutate(Sample_ID = str_split(recipient_gene, "_", simplify = TRUE)[,1]) %>% # extract sample ID from gene ID
   mutate(Sample_ID = str_replace(Sample_ID, "wk6", "6wk")) %>% # format of sample ID from genes is reversed from meta data
   mutate(Sample_ID = str_replace(Sample_ID, "wk12", "12wk")) %>%
@@ -89,12 +89,12 @@ HQ_genes_fmt_male <- HQ_genes_male_clean %>% # load all HQ male genes
   filter(Group == "FMT" & Timepoint == "Week 6") # filter for FMT week 6 
 nrow(HQ_genes_fmt_male) # 251198
 
-HQ_genes_fmt_male_individual <- HQ_genes_fmt_male %>% # load HGT events
+HQ_genes_fmt_male_individual <- HQ_genes_fmt_male %>% # load HQ male genes for FMT week 6
   group_by(Participant_ID) %>% # group by participant ID
   summarise(HQ_genes_per_indiv = n(), # get number of HQ genes for each individual
             HQ_clusters_per_indiv = n_distinct(Cluster_ID)) # get number of distinct gene clusters for each individual
 
-hgt_genes_fmt_male_individual <- male_fmt_hgts_clean %>% # load output of tentative_hgts_fmt() above
+hgt_genes_fmt_male_individual <- male_fmt_hgts_clean %>% # load HGT events
   mutate(Sample_ID = str_split(recipient_gene, "_", simplify = TRUE)[,1]) %>% # extract sample ID from gene ID
   mutate(Sample_ID = str_replace(Sample_ID, "wk6", "6wk")) %>% # format of sample ID from genes is reversed from meta data
   mutate(Sample_ID = str_replace(Sample_ID, "wk12", "12wk")) %>%
@@ -119,12 +119,12 @@ HQ_genes_placebo_male <- HQ_genes_male_clean %>% # load all HQ male genes
   filter(Group == "Placebo" & Timepoint == "Week 6") # filter for placebo week 6 
 nrow(HQ_genes_placebo_male) # 353485
 
-HQ_genes_placebo_male_individual <- HQ_genes_placebo_male %>% # load HGT events
+HQ_genes_placebo_male_individual <- HQ_genes_placebo_male %>% # load HQ male genes for placebo week 6
   group_by(Participant_ID) %>% # group by participant ID
   summarise(HQ_genes_per_indiv = n(), # get number of HQ genes for each individual
             HQ_clusters_per_indiv = n_distinct(Cluster_ID)) # get number of distinct gene clusters for each individual
 
-hgt_genes_placebo_male_individual <- male_placebo_hgts_clean %>% # load output of tentative_hgts_placebo() above
+hgt_genes_placebo_male_individual <- male_placebo_hgts_clean %>% # load HGT events
   mutate(Sample_ID = str_split(recipient_gene, "_", simplify = TRUE)[,1]) %>% # extract sample ID from gene ID
   mutate(Sample_ID = str_replace(Sample_ID, "wk6", "6wk")) %>% # format of sample ID from genes is reversed from meta data
   mutate(Sample_ID = str_replace(Sample_ID, "wk12", "12wk")) %>%
