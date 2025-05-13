@@ -2,6 +2,7 @@
 
 library(tidyverse)
 library(eulerr)
+library(ggbeeswarm)
 
 ## load data
 
